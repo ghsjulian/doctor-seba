@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { StatusBar } from "./components/StatusBar";
 import { Header } from "./components/Header";
 import { BottomNav } from "./components/BottomNav";
 import { LanguageModal } from "./components/LanguageModal";
@@ -50,15 +51,14 @@ Downloaded: ${new Date().toLocaleString("bn-BD")}
 	};
 
 	return (
-		<>
-			{/* Phone Frame */}
-			<div
-				className="w-full max-w-[100vw] h-[100vh] max-h-[100vh] bg-[#F2F5F3]  overflow-hidden flex flex-col relative"
-				style={{
-					boxShadow:
-						"0 32px 80px -12px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,0,0,0.1)"
-				}}
-			>
+	<>
+				{/* Notch */}
+				<div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-[22px] bg-gray-900 rounded-b-2xl z-20" />
+
+				{/*
+        <StatusBar />
+        */}
+
 				<Header
 					lang={lang}
 					onSettingsClick={() => setShowSettings(true)}
@@ -105,7 +105,6 @@ Downloaded: ${new Date().toLocaleString("bn-BD")}
 					onSelectLanguage={setLang}
 					currentLang={lang}
 				/>
-			</div>
-		</>
+				</>
 	);
 }
